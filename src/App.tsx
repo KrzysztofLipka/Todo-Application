@@ -1,36 +1,32 @@
 import React from 'react';
 import './App.css';
 import Confirm from "./Confirm";
-import DashboardView from '../src/components/dashboard/DashboardView';
+import DashboardView from './components/Dashboard/DashboardView';
 import TasksBoardView from '../src/components/TasksBoard/TasksBoardView';
 //import {Row} from './components/common/Column'
 //import Column from './components/common/Column'
 import styled from 'styled-components';
 import HeaderView from './components/Header/HeaderView';
+import { inject, observer } from 'mobx-react';
+//import {TasksStoreModel} from '../src/components/common/Task/TasksStoreModel'
 
 
 
-interface IState {
-  confirmOpen: boolean;
+interface IProps {
+  store: any;
 }
 
 /*const App: React.FC <IState> = () => */
 
 
 
-
-class App extends React.Component<{}, IState>
+@inject('store')
+@observer
+class App extends React.Component<{}>
 {
-
-  constructor(props: {}) {
-    super(props);
-    this.state = {
-    confirmOpen: true,
-    };
-   }
-
- 
 render(){
+  //const store = this.props.TaskStoreModel;
+  //const {store} = this.props;
   return (
     <div className="App">
       <div>

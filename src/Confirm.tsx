@@ -14,7 +14,7 @@ interface IProps {
 
 //class Confirm extends React.Component<IProps>
 
-const Confirm: React.SFC<IProps> = (props) =>
+const Confirm: React.SFC<IProps> = props =>
 {
     
     const handleOnClick=()=>{
