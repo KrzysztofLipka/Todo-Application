@@ -24,21 +24,19 @@ interface IProps {
 @observer
 class App extends React.Component<{}>
 {
-render(){
-  //const store = this.props.TaskStoreModel;
-  //const {store} = this.props;
-  return (
-    <div className="App">
-      <div>
-        <HeaderView/>
-        <DashboardView/>
-        <TasksBoardView/>
+  render() {
+    return (
+      <div className="App">
+        <div>
+          <HeaderView />
+          <DashboardView />
+          <TasksBoardView />
         </div>
-      
-        
-    </div>
-  );
-}
+
+
+      </div>
+    );
+  }
 }
 
 export default App;

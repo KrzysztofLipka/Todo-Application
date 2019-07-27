@@ -1,7 +1,7 @@
 .HeaderContainer {
-    background-color: rgb(0, 17, 255);
     min-height: 50px;
     float: left; 
-    width: 100%; 
+    width: 100%;
+    background-color: rgb(242, 243, 235);
       
 }

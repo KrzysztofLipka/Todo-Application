@@ -1,22 +1,42 @@
 .TasksBoardContainer {
-    background-color: rgb(228, 188, 13);
+    background-color: rgb(242, 243, 235);
     min-height: 500px;
    
     
 }
 
+.task{
+    background-color: rgb(255, 255, 255);
+    border-bottom-style: solid; 
+    height: 30px;
+    
+}
+
+
+
 
 @media only screen and (min-width: 768px) {  
     .TasksBoardContainer {
     width: 100%;
+   
+    
+ }
+}
+
+@media only screen and (max-width: 992px) {  
+    .TasksBoardContainer {
+    width: 100%;
+    border-top-style: solid;
     
  }
 }
 
 @media only screen and (min-width: 992px) {  
     .TasksBoardContainer {
+    box-sizing: border-box;
     width: 70%;
     float: left;
+    border-left-style: solid;
  }
 }
 
@@ -24,5 +44,6 @@
     .TasksBoardContainer {
     width: 70%;
     float: left;
+    border-left-style: solid;
  }
 }

@@ -9,31 +9,32 @@ interface IBasicFormProps {
 
 }
 
-const BasicForm: React.SFC<IBasicFormProps> =  props => {
-    
+const BasicForm: React.SFC<IBasicFormProps> = props => {
+
     const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         props.onTitleChange(e.currentTarget.value);
-      };
+    };
 
-      const handleDescriptionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleDescriptionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         props.onDescriptionChange(e.currentTarget.value);
-      };
+    };
 
-      const handleEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
-          if(e.key==='Enter'){
+    const handleEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === 'Enter') {
             props.onConfirm();
-          }
-      };
+        }
+    };
 
-    return(
+    return (
         <form className='basicForm'>
             <div className='form-group'>
-                <input type='text' id='title' value = {props.title} 
-                    onChange={handleTitleChange} 
-                    onKeyDown={handleEnter}/>
-                <input type='text' id='description' 
-                    value = {props.description} 
-                    onChange={handleDescriptionChange}/>
+                <input type='text' id='title' value={props.title}
+                    onChange={handleTitleChange}
+                    onKeyDown={handleEnter} />
+                <input type='text' id='description'
+                    value={props.description}
+                    onChange={handleDescriptionChange}
+                    onKeyDown={handleEnter} />
             </div>
         </form>
     )
