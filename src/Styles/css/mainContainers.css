@@ -1,0 +1,93 @@
+.wrapper {
+  display: grid;
+  grid-template-areas: "dashboard" "tasks";
+}
+@media only screen and (min-width: 768px) {
+  .wrapper {
+    grid-template-columns: 1fr 3fr;
+    grid-template-areas: "dashboard tasks" "dashboard tasks";
+  }
+}
+/*@media only screen and (min-width: 1200px) {  
+    .DashboardContainer {
+    width: 30%;
+    float: left;
+ }
+}*/
+.DashboardContainer {
+  background-color: #363636;
+  grid-area: dashboard;
+}
+.TasksBoardContainer {
+  grid-area: tasks;
+  background-color: #f1f1f3;
+}
+.task {
+  background-color: #631e1e;
+  justify-content: center;
+  align-items: center;
+}
+.tasks {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, minmax(100px, 200px));
+  grid-gap: 1rem;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.basicForm {
+  width: 500px;
+  height: 300px;
+  color: #d1d2d4;
+  overflow: hidden;
+}
+.input-container {
+  width: 100%;
+  position: relative;
+  height: 50px;
+  color: #d1d2d4;
+}
+.input-container input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  padding-top: 20px;
+  color: #d1d2d4;
+  outline: none;
+}
+.input-container label {
+  position: absolute;
+  bottom: 0px;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  border-bottom: 1px solid black;
+  pointer-events: none;
+}
+.input-container label::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  border-bottom: 1px solid #ff7b00;
+  transform: translateX(-100%);
+  transition: all 0.3s ease;
+}
+.input-name {
+  position: absolute;
+  bottom: 5px;
+  left: 0px;
+  transition: all 0.3s ease;
+}
+.input-container input:focus + .label-name .input-name,
+.input-container input:valid + .label-name .input-name {
+  transform: translateY(-150%);
+  font-size: 14px;
+  color: aquamarine;
+}
+.input-container input:focus + .label-name::after,
+.input-container input:valid + .label-name::after {
+  transform: translateX(0%);
+}
