@@ -1,5 +1,5 @@
 import React from 'react';
-import './TasksBoard.css'
+
 
 interface ITaskProps {
     id: string;
@@ -17,8 +17,8 @@ const TaskContainer: React.SFC<ITaskProps> = (props) => {
     return (
         <div className='taskContainer'>
             <div className='taskContent'>
-                <span>{props.title}</span>
-                <span>{props.description}</span>
+                <p>{props.title}</p>
+                <p>{props.description}</p>
                 <button onClick={handleRemove} className='removeButton'>x</button>
             </div>
         </div>

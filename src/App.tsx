@@ -1,5 +1,6 @@
 import React from 'react';
-import './App.css';
+//import './App.css';
+import './Styles/css/mainContainers.css';
 import Confirm from "./Confirm";
 import DashboardView from './components/Dashboard/DashboardView';
 import TasksBoardView from '../src/components/TasksBoard/TasksBoardView';
@@ -27,13 +28,11 @@ class App extends React.Component<{}>
   render() {
     return (
       <div className="App">
-        <div>
-          <HeaderView />
+        <div className="wrapper">
+
           <DashboardView />
           <TasksBoardView />
         </div>
-
-
       </div>
     );
   }

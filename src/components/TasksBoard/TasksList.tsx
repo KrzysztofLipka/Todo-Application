@@ -3,7 +3,6 @@ import { observer, inject } from 'mobx-react';
 import TaskContainer from './TaskContainer';
 import { ITask } from '../common/Task/Task'
 import { TodoStore } from '../common/Task/TasksStoreModel'
-import './TasksBoard.css'
 
 
 interface IProps {

@@ -28,13 +28,25 @@ const BasicForm: React.SFC<IBasicFormProps> = props => {
     return (
         <form className='basicForm'>
             <div className='form-group'>
-                <input type='text' id='title' value={props.title}
-                    onChange={handleTitleChange}
-                    onKeyDown={handleEnter} />
-                <input type='text' id='description'
-                    value={props.description}
-                    onChange={handleDescriptionChange}
-                    onKeyDown={handleEnter} />
+                <div className='input-container'>
+                    <input type='text' name='title' value={props.title}
+                        onChange={handleTitleChange}
+                        onKeyDown={handleEnter} autoComplete="off" required />
+                    <label htmlFor="title" className="label-name">
+
+                        <span className="input-name">Title</span>
+                    </label>
+                </div>
+
+                <div className='input-container'>
+                    <input type='text' name='description'
+                        value={props.description}
+                        onChange={handleDescriptionChange}
+                        onKeyDown={handleEnter} autoComplete="off" required />
+                    <label htmlFor="description" className="label-name">
+                        <span className="input-name">Description</span>
+                    </label>
+                </div>
             </div>
         </form>
     )
