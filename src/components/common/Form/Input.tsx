@@ -5,31 +5,39 @@ interface InputProps {
     value: string;
     onChange: (value: string) => void;
     onConfirm: () => void;
-
+    inputHeight?: string;
 
 }
 
 const Input: React.SFC<InputProps> = props => {
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         props.onChange(e.currentTarget.value);
     };
 
-    const handleEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    const handleEnter = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
         if (e.key === 'Enter') {
+            e.preventDefault();
             props.onConfirm();
         }
     };
 
+
+
+
     return (
         <div className='input-container'>
-            <input type='text' name={props.inputName} value={props.value}
+            {/*<label htmlFor="description-input" className="description-label">{props.inputName}</label>*/}
+            <textarea className="description-input"
+                name={props.inputName}
+                value={props.value}
                 onChange={handleChange}
-                onKeyDown={handleEnter} autoComplete="off" required />
-            <label htmlFor={props.inputName} className="label-name">
+                onKeyDown={handleEnter}
+                autoComplete="off"
+                style={{ height: props.inputHeight }}
 
-                <span className="input-name">{props.inputName}</span>
-            </label>
+            />
+
         </div>
     )
 

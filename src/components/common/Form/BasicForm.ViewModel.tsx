@@ -8,6 +8,7 @@ import { Task, ITask } from '../../common/Task/Task';
 interface IBasicFormState {
     title: string;
     description: string;
+    isAddCheckboxClicked: boolean;
 
 }
 
@@ -20,7 +21,8 @@ export default class BasicFormViewModel extends React.Component<{}, IBasicFormSt
         super(props);
         this.state = {
             title: '',
-            description: ''
+            description: '',
+            isAddCheckboxClicked: false
         }
         this.handleConfirm = this.handleConfirm.bind(this);
     }
@@ -31,14 +33,22 @@ export default class BasicFormViewModel extends React.Component<{}, IBasicFormSt
 
     private clearTask = () => { this.setState({ title: '', description: '' }) };
 
+    private handleAddTaskCheckbox = () => {
+        this.state.isAddCheckboxClicked ?
+            this.setState({ isAddCheckboxClicked: false }) :
+            this.setState({ isAddCheckboxClicked: true })
+
+
+    }
+
     private handleConfirm() {
         if (this.state.title.length !== 0) {
             //const task: ITask = {
             //    title: this.state.title,
             //    description: this.state.description
             //}
-            const task2 = new Task({ title: this.state.title, description: this.state.description })
-            taskStore.addTask(task2);
+            const task = new Task({ title: this.state.title, description: this.state.description })
+            taskStore.addTask(task);
             this.clearTask();
         }
     }
@@ -54,6 +64,8 @@ export default class BasicFormViewModel extends React.Component<{}, IBasicFormSt
                 onTitleChange={this.handleTitleChange}
                 onDescriptionChange={this.handleDescriptionChange}
                 onConfirm={this.handleConfirm}
+                switchAddTaskActive={this.handleAddTaskCheckbox}
+                isAddCheckboxClicked={this.state.isAddCheckboxClicked}
             />
         )
     }

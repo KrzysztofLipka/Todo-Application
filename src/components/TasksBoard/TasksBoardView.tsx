@@ -16,7 +16,7 @@ class TasksBoard extends React.Component<{}>
     //const {store} = this.props;
     return (
       <div className="TasksBoardContainer">
-        <div className='formContainer'><BasicFormViewModel /></div>
+        <BasicFormViewModel />
         <div className='tasks'><TasksList /></div>
       </div>
     );
