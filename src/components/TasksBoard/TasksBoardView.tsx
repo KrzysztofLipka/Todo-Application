@@ -17,7 +17,14 @@ class TasksBoard extends React.Component<{}>
     return (
       <div className="TasksBoardContainer">
         <BasicFormViewModel />
-        <div className='tasks'><TasksList /></div>
+        <div className='applications-list separated'>Apps</div>
+        <div className='application-container separated'>
+          <div className='application-options'>Options</div>
+          <div className='tasks'>
+            <TasksList />
+          </div>
+          <div className='application-pages'>pages</div>
+        </div>
       </div>
     );
   }

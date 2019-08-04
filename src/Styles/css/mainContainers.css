@@ -1,13 +1,27 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:300,400,500');
 @import url('https://fonts.googleapis.com/css?family=Inconsolata');
+body {
+  height: 100%;
+}
+html {
+  height: auto;
+  background-color: #e7e7e7;
+}
+#root {
+  background-color: #e7e7e7;
+  height: 100%;
+}
 .wrapper {
+  background-color: #e7e7e7;
   display: grid;
   grid-template-areas: "dashboard" "tasks";
 }
 @media only screen and (min-width: 768px) {
   .wrapper {
+    margin: auto;
     grid-template-columns: 1fr 3fr;
     grid-template-areas: "dashboard tasks" "dashboard tasks";
+    width: 60%;
   }
 }
 /*@media only screen and (min-width: 1200px) {  
@@ -17,23 +31,61 @@
  }
 }*/
 .DashboardContainer {
-  background-color: #363636;
+  background-color: #f6f6f6;
   grid-area: dashboard;
+  margin-top: 15px;
+}
+.App {
+  width: 100%;
+  margin: auto;
+  background-color: #e7e7e7;
 }
 .TasksBoardContainer {
+  width: 100%;
   grid-area: tasks;
-  background-color: #f1f1f3;
+  background-color: #e7e7e7;
   display: grid;
-  grid-template-rows: 25% 75%;
-  grid-template-areas: "formContainer" "tasksContainer";
+  grid-template-rows: 200px 50px auto;
+  grid-template-areas: "formContainer" "apps" "currentApp";
+  grid-row-gap: 15px;
+}
+.application-container {
+  width: 100%;
+  height: 100%;
+  grid-area: currentApp;
+  display: grid;
+  margin-left: 15px;
+  margin-right: 15px;
+  grid-template-rows: 50px 450px 50px;
+  grid-template-areas: "applicationOptions" "tasksContainer" "pages";
+  background-color: #f6f6f6;
+}
+.application-options {
+  grid-area: applicationOptions;
+  background-color: #f6f6f6;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+.application-pages {
+  grid-area: pages;
+}
+.HeaderContainer {
+  background-color: #023246;
+  width: 100%;
+  height: 100px;
 }
 .form-group {
   grid-area: formContainer;
+  background-color: #f6f6f6;
   display: grid;
-  grid-template-columns: 20% 15% 15% 15% 15% 20%;
-  grid-template-rows: 10% 20% 10% 20% 30% 10%;
-  grid-template-areas: ". . . . . ." ". . main-input main-input . ." ". . . . . ." ". description description description description ." ". description description description description ." ". . . . . .";
-  text-align: center;
+  margin-right: 15px;
+  margin-left: 15px;
+  margin-top: 15px;
+  width: 100%;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-rows: 20% 10% 20% 50%;
+  grid-template-areas: ". . . ." ". i i . " ". d d ." ". . . .";
+  grid-row-gap: 20px;
 }
 .basicForm {
   /*display: grid;
@@ -47,117 +99,105 @@
                         ". . ."*/
 }
 .task {
-  background-color: #631e1e;
+  background-color: #f6f6f6;
   justify-content: center;
   align-items: center;
+  border: #e7e7e7 2px solid;
+  box-shadow: 0 0 1em #e7e7e7;
+  transition: background-color 0.5s ease;
+}
+.task:hover {
+  background-color: #e7e7e7;
 }
 .tasks {
+  width: 90%;
+  background-color: #f6f6f6;
+  margin-left: auto;
+  margin-right: auto;
+  overflow-x: auto;
   grid-area: tasksContainer;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(4, minmax(100px, 200px));
-  grid-gap: 1rem;
+  grid-template-columns: repeat(1, minmax(100px, 3fr));
+  grid-template-rows: repeat(4, 80px);
+  grid-gap: 5px;
+  max-height: 700px;
 }
-* {
-  margin: 0;
-  padding: 0;
+.applications-list {
+  grid-area: apps;
+  background-color: #f6f6f6;
+  margin-left: 15px;
+  width: 100%;
 }
-body {
-  background: #E8E8E8;
-  font-family: 'Raleway', sans-serif;
+.separated {
+  -webkit-box-shadow: 2px 2px 6px 0px #c7c7c7;
+  -moz-box-shadow: 2px 2px 6px 0px #c7c7c7;
+  box-shadow: 2px 2px 6px 0px #c7c7c7;
 }
-.cbox,
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.container {
-  flex-direction: column;
-  height: 100vh;
-}
-.parent {
-  grid-area: main-input;
-  position: relative;
-}
-.parent .add,
-.parent .cbox,
-.parent .message {
-  position: absolute;
-}
-.parent .add,
-.parent .message {
-  color: #363636;
-}
-.parent .add {
-  top: -3px;
-  right: 25px;
-  transition: 0.6s all 0.3s;
-  letter-spacing: 1px;
-}
-.message,
-.cbox {
-  outline: none;
-}
-.cbox {
-  top: -10px;
-  right: -10px;
-  width: 30px;
-  height: 30px;
-  background: #363636;
-  border-radius: 100%;
+/*.message {
   -webkit-appearance: none;
-  z-index: 3;
-}
-.cbox:before,
-.cbox:after {
-  position: absolute;
-  content: '';
-  width: 20px;
-  height: 2px;
-  background: #E8E8E8;
-  transition: 0.4s all;
-}
-.cbox:after {
-  transform: rotate(90deg);
-}
-.cbox:checked ~ .message {
-  width: 300px;
-  height: 100%;
-  transition: 0.3s width, 0.3s height 0.2s;
-}
-.cbox:checked:before,
-.cbox:checked:after {
-  transform: rotate(360deg);
-  transition: 0.4s all;
-}
-.cbox:checked ~ .add {
-  font-size: 13px;
-  transform: translateY(-16px);
-  transition: 0.3s all;
-}
-.message {
-  right: 0;
-  height: 0;
-  width: 0;
-  transition: 0.4s all;
+  border: 0;
+  width: 100%;
+  //transition: 0.4s all;
   background: none;
-  border: 2px solid #363636;
-  transition: 0.4s width 0.2s, 0.1s height;
-  font-size: 30px;
-  padding-left: 10px;
+  border-bottom: 2px solid @dark-color;
+  //transition: 0.4s width 0.2s, 0.1s height;
+  font-size: 15px;
+  
+}*/
+.textarea-container {
+  grid-area: d;
 }
 .input-container {
-  grid-area: description;
+  grid-area: i;
 }
+/*
 .description-input {
   width: 100%;
   height: 100%;
-  border: 2px solid #363636;
-  background-color: #f1f1f3;
-  font-size: 30px;
+  -webkit-appearance: none;
+  border: 0;
+  border-bottom: 2px solid @dark-color;
+  background-color: @light-color;
+  font-size: 15px;
+  background: none;
 }
+
+*/
 .description-label {
   top: -3px;
   right: 25px;
+}
+.description-input,
+.message {
+  /*border: 0;
+  width: 100%;
+  height: 100%;
+  padding: 10px 20px;
+  background: white;
+  border-radius: 3px;
+  box-shadow: 0px 8px 15px @grey-color;
+  transition: all 0.4s ease;
+  &:focus {
+    outline: none;
+    box-shadow: 0px 9px 20px @grey-color;
+    + .icons-container {
+      .icon-close {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      .icon-search {
+        opacity: 0;
+        transform: translateX(200%);
+      }
+    }
+  }*/
+  display: block;
+  padding: 10px;
+  margin: 10px auto;
+  background-color: #e7e7e7;
+  border: none;
+  width: 100%;
+  outline: none;
+  font-size: 14px !important;
+  font-family: 'Open Sans', sans-serif !important;
 }

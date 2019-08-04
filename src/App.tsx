@@ -1,7 +1,6 @@
 import React from 'react';
 //import './App.css';
 import './Styles/css/mainContainers.css';
-import Confirm from "./Confirm";
 import DashboardView from './components/Dashboard/DashboardView';
 import TasksBoardView from '../src/components/TasksBoard/TasksBoardView';
 //import {Row} from './components/common/Column'
@@ -28,8 +27,8 @@ class App extends React.Component<{}>
   render() {
     return (
       <div className="App">
+        <HeaderView />
         <div className="wrapper">
-
           <DashboardView />
           <TasksBoardView />
         </div>

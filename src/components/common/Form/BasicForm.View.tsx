@@ -19,7 +19,7 @@ const BasicForm: React.SFC<IBasicFormProps> = props => {
 
     return (
 
-        <div className='form-group'>
+        <div className='form-group separated'>
             <MainInput
                 inputName={'title'}
                 value={props.title}
@@ -29,14 +29,14 @@ const BasicForm: React.SFC<IBasicFormProps> = props => {
                 isAddCheckboxClicked={props.isAddCheckboxClicked}
             />
 
-            {props.title && <Input
+            <Input
                 inputName={'description'}
                 value={props.description}
                 onChange={props.onDescriptionChange}
                 onConfirm={props.onConfirm}
 
 
-            />}
+            />
         </div>
 
     )

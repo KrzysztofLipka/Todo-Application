@@ -31,15 +31,13 @@ const MainInput: React.SFC<InputProps> = props => {
 
     return (
 
-        <div className='parent'>
-            <input className="cbox" type="checkbox" onChange={handleAddClick} />
-            <label htmlFor="cbox" className="add">{props.isAddCheckboxClicked ?
-                'Click enter for submit' : 'Add Task'}</label>
+        <div className='input-container'>
             <input className="message" type='text'
                 name={props.inputName}
                 value={props.value}
                 onChange={handleChange}
                 onKeyDown={handleEnter}
+                placeholder="Add Title"
                 autoComplete="off" />
         </div>
 

@@ -26,7 +26,7 @@ const Input: React.SFC<InputProps> = props => {
 
 
     return (
-        <div className='input-container'>
+        <div className='textarea-container'>
             {/*<label htmlFor="description-input" className="description-label">{props.inputName}</label>*/}
             <textarea className="description-input"
                 name={props.inputName}
@@ -34,6 +34,7 @@ const Input: React.SFC<InputProps> = props => {
                 onChange={handleChange}
                 onKeyDown={handleEnter}
                 autoComplete="off"
+                placeholder="Add description"
                 style={{ height: props.inputHeight }}
 
             />

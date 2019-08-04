@@ -18,7 +18,7 @@ class DashboardView extends React.Component<{}>
 
     render() {
         return (
-            <div className="DashboardContainer">
+            <div className="DashboardContainer separated">
                 dashboard
           </div>
         );
