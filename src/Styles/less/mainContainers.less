@@ -20,6 +20,13 @@ html {
                          "tasks";
 }
 
+.App {
+  width: 100%;
+  margin: auto;
+  background-color: @grey-color; 
+}
+
+
 @media only screen and (min-width: 768px) {
     .wrapper {
         margin: auto;
@@ -48,19 +55,7 @@ html {
     background-color: @light-color;
     grid-area: dashboard;
     margin-top: 15px;
-
-    
-
 }
-
-.App {
-  width: 100%;
-  margin: auto;
-  background-color: @grey-color; 
-}
-
-
-
 
 .TasksBoardContainer {
  
@@ -110,80 +105,10 @@ html {
 .HeaderContainer {
     background-color: @dark-blue;
       width: 100%;
-      height: 100px;
-}
-
-.form-group {
-  grid-area: formContainer;
-  background-color: @light-color;
-  display: grid;
-  margin-right: 15px;
-  margin-left: 15px;
-  margin-top: 15px;
-
-  width: 100%;
-  
-  grid-template-columns: 25% 25% 25% 25%;
-  grid-template-rows: 20% 10% 20% 50%; 
-  grid-template-areas:  ". . . ."
-                        ". i i . "
-                        ". d d ."             
-                        ". . . .";
-    grid-row-gap: 20px;
-
+      height: 80px;
 }
 
 
-
-.basicForm {
-  /*display: grid;
-  text-align: center;
-  grid-template-columns: 20% 60% 20%;
-  grid-template-rows: 10% 20% 30% 30% 10%;  
-  grid-template-areas:  ". . ." 
-                        ". main-input ."
-                        ". description ."
-                        ". . ."
-                        ". . ."*/
-  
-}
-
-.task{
-    background-color: @light-color;
-    justify-content: center;
-    align-items: center;
-    border: @grey-color 2px solid;
-    box-shadow:  0 0 1em @grey-color;
-    transition: background-color 0.5s ease;
-
-    
-
-}
-
-.task:hover {
- //border-left: @light-blue 1px solid;
-  background-color: @grey-color;
-}
-
-
-
-.tasks {
-  width: 90%;
-  background-color: @light-color;
-  margin-left: auto;
-  margin-right: auto;
-  overflow-x:auto;
- 
-
-  grid-area: tasksContainer;
-    display: grid;
-    grid-template-columns: repeat(1, minmax(100px,3fr));
-    grid-template-rows: repeat(4,80px);
-    grid-gap: 5px;
-    max-height: 700px
-    //padding-left: 20px;
-    //padding-right: 20px;
-}
 
 .applications-list {
   grid-area: apps;
@@ -198,94 +123,20 @@ box-shadow: 2px 2px 6px 0px rgba(199,199,199,1);
 }
 
 
-
-
-
-
-
 @import url('https://fonts.googleapis.com/css?family=Raleway:300,400,500');
 @import url('https://fonts.googleapis.com/css?family=Inconsolata');
 
 
 
-/*.message {
-  -webkit-appearance: none;
-  border: 0;
-  width: 100%;
-  //transition: 0.4s all;
-  background: none;
-  border-bottom: 2px solid @dark-color;
-  //transition: 0.4s width 0.2s, 0.1s height;
-  font-size: 15px;
-  
-}*/
 
-.textarea-container {
-  grid-area: d;
-}
 
-.input-container {
-  grid-area: i;
-}
 
-/*
-.description-input {
-  width: 100%;
-  height: 100%;
-  -webkit-appearance: none;
-  border: 0;
-  border-bottom: 2px solid @dark-color;
-  background-color: @light-color;
-  font-size: 15px;
-  background: none;
-}
-
-*/
-
-.description-label {
-  top: -3px;
-  right: 25px;
-}
 
 //-----------------------------------------------------
 
 
 
-.description-input, .message
-{
-  /*border: 0;
-  width: 100%;
-  height: 100%;
-  padding: 10px 20px;
-  background: white;
-  border-radius: 3px;
-  box-shadow: 0px 8px 15px @grey-color;
-  transition: all 0.4s ease;
-  &:focus {
-    outline: none;
-    box-shadow: 0px 9px 20px @grey-color;
-    + .icons-container {
-      .icon-close {
-        opacity: 1;
-        transform: translateX(0);
-      }
-      .icon-search {
-        opacity: 0;
-        transform: translateX(200%);
-      }
-    }
-  }*/
 
-  display: block;
-  padding: 10px;
-  margin: 10px auto;
-  background-color: @grey-color;
-  border: none;
-  width: 100%;
-  outline: none;
-  font-size: 14px !important;
-  font-family: 'Open Sans', sans-serif !important;
-}
 
 
 

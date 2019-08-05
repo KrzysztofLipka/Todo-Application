@@ -1,0 +1,66 @@
+// out: ../css/taskPanel.css
+
+@import (reference) "parameters.less";
+
+
+.task{
+    background-color: @light-color;
+    justify-content: center;
+    align-items: center;
+    border: @grey-color 2px solid;
+    box-shadow:  0 0 1em @grey-color;
+    transition: background-color 0.5s ease;
+    
+   
+
+    
+
+}
+
+.taskContainer {
+    display: grid;
+    grid-template-columns: 5% 25% 20% 25% 25%;
+    grid-template-areas: '. title date isDone taskButtons';
+    height: 100%;
+}
+
+.task:hover {
+ //border-left: @light-blue 1px solid;
+  background-color: @grey-color;
+}
+
+
+
+.tasks {
+  width: 90%;
+  background-color: @light-color;
+  margin-left: auto;
+  margin-right: auto;
+  overflow-x:auto;
+ 
+
+  grid-area: tasksContainer;
+    display: grid;
+    grid-template-columns: repeat(1, minmax(100px,3fr));
+    grid-template-rows: repeat(4,60px);
+    grid-gap: 5px;
+    max-height: 700px
+    //padding-left: 20px;
+    //padding-right: 20px;
+}
+
+.task-title {
+    grid-area: title;
+}
+
+.task-date {
+    grid-area: date;
+}
+
+.task-isdone {
+    grid-area: isDone;
+}
+
+.task-buttons {
+    grid-area: taskButtons;
+}

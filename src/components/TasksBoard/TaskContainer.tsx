@@ -16,11 +16,15 @@ const TaskContainer: React.SFC<ITaskProps> = (props) => {
 
     return (
         <div className='taskContainer'>
-            <div className='taskContent'>
-                <p>{props.title}</p>
-                <p>{props.description}</p>
+
+            <div className='task-title'>{props.title}</div>
+            <div className='task-date'>date</div>
+            <div className='task-isdone'>done</div>
+            {/*<p>{props.description}</p>*/}
+            <div className='task-buttons'>
                 <button onClick={handleRemove} className='removeButton'>x</button>
             </div>
+
         </div>
     )
 }

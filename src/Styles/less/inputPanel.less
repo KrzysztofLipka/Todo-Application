@@ -1,1 +1,55 @@
 // out: ../css/inputPanel.css
+
+@import (reference) "parameters.less";
+
+.description-input, .message
+{
+   
+  display: block;
+  padding: 10px;
+  margin: 10px auto;
+  background-color: @grey-color;
+  border: none;
+  width: 100%;
+  outline: none;
+  font-size: 14px !important;
+  font-family: 'Open Sans', sans-serif !important;
+}
+
+
+.form-group {
+    grid-area: formContainer;
+    background-color: @light-color;
+    display: grid;
+    margin-right: 15px;
+    margin-left: 15px;
+    margin-top: 15px;
+  
+    width: 100%;
+    
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 20% 10% 20% 50%; 
+    grid-template-areas:  ". . . ."
+                          ". i i . "
+                          ". d d ."             
+                          ". . . .";
+      grid-row-gap: 20px;
+  
+  }
+
+
+  .textarea-container {
+    grid-area: d;
+  }
+  
+  .input-container {
+    grid-area: i;
+  }
+  
+  .description-label {
+    top: -3px;
+    right: 25px;
+  }
+  
+  
+  
