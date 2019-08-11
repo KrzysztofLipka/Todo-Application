@@ -3,6 +3,7 @@ import React from 'react';
 import './Styles/css/mainContainers.css';
 import './Styles/css/inputPanel.css';
 import './Styles/css/taskPanel.css';
+import './Styles/css/checkBox.css';
 import DashboardView from './components/Dashboard/DashboardView';
 import TasksBoardView from '../src/components/TasksBoard/TasksBoardView';
 //import {Row} from './components/common/Column'

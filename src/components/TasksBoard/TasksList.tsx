@@ -2,8 +2,8 @@ import React from 'react';
 import { observer, inject } from 'mobx-react';
 import TaskContainer from './TaskContainer';
 import { ITask } from '../common/Task/Task'
-import { TodoStore } from '../common/Task/TasksStoreModel'
-
+import { TodoStore } from '../common/Task/TasksStoreModel';
+import CheckBox from '../common/CheckBox/CheckBox';
 
 interface IProps {
     store?: TodoStore
@@ -36,8 +36,11 @@ class TasksList extends React.Component<IProps>
                     <TaskContainer
                         id={task.id}
                         title={task.title}
+                        status={task.status}
                         description={task.description}
                         onRemove={this.store.removeTask}
+                        onClickOnTask={this.store.clickTask}
+                        onClickDoneCheckbox={this.store.doneTask}
                     />
                 </div>
 

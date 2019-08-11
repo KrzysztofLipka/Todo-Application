@@ -1,6 +1,6 @@
 import * as React from "react";
-import MainInput from './MainInput'
-import Input from './Input'
+import Input from './MainInput'
+import TextArea from './Input'
 
 interface IBasicFormProps {
     title: string;
@@ -20,7 +20,7 @@ const BasicForm: React.SFC<IBasicFormProps> = props => {
     return (
 
         <div className='form-group separated'>
-            <MainInput
+            <Input
                 inputName={'title'}
                 value={props.title}
                 onChange={props.onTitleChange}
@@ -29,7 +29,7 @@ const BasicForm: React.SFC<IBasicFormProps> = props => {
                 isAddCheckboxClicked={props.isAddCheckboxClicked}
             />
 
-            <Input
+            <TextArea
                 inputName={'description'}
                 value={props.description}
                 onChange={props.onDescriptionChange}

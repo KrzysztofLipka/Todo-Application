@@ -10,7 +10,7 @@ interface InputProps {
     isAddCheckboxClicked: boolean;
 }
 
-const MainInput: React.SFC<InputProps> = props => {
+const Input: React.SFC<InputProps> = props => {
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         props.onChange(e.currentTarget.value);
@@ -45,4 +45,4 @@ const MainInput: React.SFC<InputProps> = props => {
 
 }
 
-export default MainInput;
+export default Input;

@@ -1,0 +1,61 @@
+// out: ../css/checkBox.css
+@import (reference) "parameters.less";
+
+.check {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  
+  margin: auto;
+  
+  input {
+    display: none;
+    &:checked + .box {
+      background-color: #000000;
+      border-color: black;
+      &:after {
+        top: 0;
+        transform: rotate(-45deg);
+        
+      }
+    }
+  }
+  
+  .box {
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    transition: all 1.1s cubic-bezier(.19,1,.22,1);
+    border: 2px solid rgb(0, 0, 0);
+    background-color:  rgb(255, 255, 255);
+    position: relative;
+    //overflow: hidden;
+    cursor: pointer;
+      //box-shadow: 0 50px rgba(0,0,0,.2);
+      
+    
+
+    &:after {
+      width: 50%;
+      height: 20%;
+      content: '';
+      position: absolute;
+      border-left: 4.5px solid;
+      border-bottom: 4.5px solid;
+      border-color: #ffffff;
+      transform: rotate(-45deg) translate3d(0,0,0) scale(0.5);
+      //transform-origin: center center;
+      transition: all 1.1s cubic-bezier(.19,1,.22,1);
+      left: 0;
+      right: 0;
+      top: 10%;
+      bottom: 5%;
+      margin: auto;
+    }
+  }
+}
+
+.checkbox-container {
+  width: 25px;
+  height: 25px;
+}

@@ -9,7 +9,7 @@ interface InputProps {
 
 }
 
-const Input: React.SFC<InputProps> = props => {
+const TextArea: React.SFC<InputProps> = props => {
 
     const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         props.onChange(e.currentTarget.value);
@@ -44,4 +44,4 @@ const Input: React.SFC<InputProps> = props => {
 
 }
 
-export default Input;
+export default TextArea;
