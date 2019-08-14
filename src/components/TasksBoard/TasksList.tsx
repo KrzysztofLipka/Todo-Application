@@ -30,7 +30,7 @@ class TasksList extends React.Component<IProps>
 
         return (
 
-            this.store.tasks.map((task: any) =>
+            this.store.getTasks.map((task: any) =>
 
                 <div className='task' key={task.id}>
                     <TaskContainer
@@ -41,6 +41,8 @@ class TasksList extends React.Component<IProps>
                         onRemove={this.store.removeTask}
                         onClickOnTask={this.store.clickTask}
                         onClickDoneCheckbox={this.store.doneTask}
+                        minutesSpent={task.minutes}
+
                     />
                 </div>
 

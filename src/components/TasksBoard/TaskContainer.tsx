@@ -1,6 +1,7 @@
 import React from 'react';
 import CheckBox from '../common/CheckBox/CheckBox';
 import { TaskStatus } from '../common/Task/Task';
+import { observable } from 'mobx';
 
 
 
@@ -10,6 +11,7 @@ interface ITaskProps {
     title: string;
     description?: string;
     status: TaskStatus;
+    minutesSpent: number;
     onRemove: (deletedTaskId: string) => void,
     onClickOnTask: (id: string) => void,
     onClickDoneCheckbox: (id: string) => void
@@ -35,14 +37,16 @@ const TaskContainer: React.SFC<ITaskProps> = (props) => {
         <div className='taskContainer' onClick={handleClickOnTask}>
 
             <div className='task-title'>{props.title}</div>
-            <div className='task-date'>date</div>
+            <div className='task-date'>{props.minutesSpent}</div>
             <div className='task-isdone'>
                 <CheckBox onClickDoneCheckbox={handleClickOnDoneCheckbox} />
                 {props.status}
             </div>
-            {/*<p>{props.description}</p>*/}
+
             <div className='task-buttons'>
-                <button onClick={handleRemove} className='removeButton'>x</button>
+                <button
+                    onClick={handleRemove}
+                    className='removeButton'>x</button>
             </div>
 
         </div>

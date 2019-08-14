@@ -1,5 +1,6 @@
-import { observable, action, computed } from 'mobx'
+import { observable, action, computed, ObservableMap } from 'mobx'
 import { Task, ITask, TaskStatus } from './Task'
+import { string } from 'prop-types';
 export class TodoStore {
 
     /*i: ITask;
@@ -13,27 +14,36 @@ export class TodoStore {
 
     }*/
 
-    @observable tasks: Task[] = [];
-    @observable activeTask: Task = new Task({ title: '' });
-    @observable aa: any = null;
+    @observable private tasks: ObservableMap<string, Task> = observable.map();
+    @observable activeTask: Task | undefined;
+    @observable inProgressTask: Task | undefined;
+    //@observable aa: any = null;
 
+    @computed get getTasks(): Task[] {
+        const tab: Task[] = []
+        this.tasks.forEach(
+            (t: Task) => {
+                tab.push(t)
+            }
+        )
+        return tab;
+    }
 
     @action addTask(task: Task) {
         console.log(task);
-        this.tasks.push(task);
+        this.tasks.set(task.id, task);
     }
 
-    @action setActiveTask(task: Task) {
+    @action setActiveTask(task: Task | undefined) {
         this.activeTask = task;
     }
 
     @action
     removeTask = (deletedTaskId: string) => {
-        if (!deletedTaskId) return this.tasks;
-        const updatedTasks = this.tasks.filter(function (task) {
-            return deletedTaskId !== task.id;
-        })
-        this.tasks = updatedTasks;
+        if (this.activeTask && deletedTaskId !== this.activeTask.id) {
+            this.tasks.delete(deletedTaskId);
+        }
+
     }
 
     @action
@@ -42,20 +52,25 @@ export class TodoStore {
     }
 
     clickTask = (id: string): void => {
-        const t = this.tasks.filter(function (task) {
-            return id === task.id;
-        })
-        this.setActiveTask(t[0]);
-        console.log(t[0]);
+        this.setActiveTask(this.tasks.get(id));
+
     }
 
     @action
     doneTask = (id: string): void => {
-        const t = this.tasks.filter(function (task) {
-            return id === task.id;
-        })
-        t[0].status === TaskStatus.todo ?
-            t[0].status = TaskStatus.done : t[0].status = TaskStatus.todo;
+        this.tasks.forEach(
+            (t: Task) => {
+                if (t.id === id) {
+                    t.setStatus();
+                    console.log(t.status);
+                }
+            }
+        )
+    }
+
+    @action
+    startProgress = () => {
+        this.inProgressTask = this.activeTask;
     }
 
 
