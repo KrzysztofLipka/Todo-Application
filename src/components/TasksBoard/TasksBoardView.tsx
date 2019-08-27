@@ -2,7 +2,7 @@ import * as React from 'react';
 import BasicFormViewModel from '../common/Form/BasicForm.ViewModel'
 import { inject, observer } from 'mobx-react';
 import TasksList from '../TasksBoard/TasksList'
-import { CaneldarIcon, DailyTodolistIcon } from '../common/Icons'
+import { CaneldarIcon, DailyTodolistIcon2, DailyTodolistIcon } from '../common/Icons'
 
 interface IDashboardViewProps {
   store: any[];
@@ -18,9 +18,9 @@ class TasksBoard extends React.Component<{}>
     return (
       <div className="TasksBoardContainer">
         <BasicFormViewModel />
-        <div className='applications-list separated'>Apps
-        <CaneldarIcon />
-          <DailyTodolistIcon />
+        <div className='applications-list separated'>
+
+
         </div>
         <div className='application-container separated'>
           <div className='application-options'>Options</div>

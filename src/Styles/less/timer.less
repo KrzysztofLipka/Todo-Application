@@ -1,0 +1,30 @@
+// out: ../css/timer.css
+
+@import (reference) "parameters.less";
+
+.timer-container {
+    text-align: center;
+    grid-area: timer;
+}
+
+#time {
+    font-size: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+   
+}
+
+
+.DashboardContainer {
+    background-color: @light-color;
+    grid-area: dashboard;
+    margin-top: 15px;
+    display: grid;
+    grid-template-rows: 50% 30%;
+    grid-template-areas: "taskInfo" "timer";
+}
+
+.clicked-task-info {
+    grid-area: taskInfo;
+}
+
+

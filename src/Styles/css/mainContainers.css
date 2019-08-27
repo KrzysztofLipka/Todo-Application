@@ -35,11 +35,6 @@ html {
     float: left;
  }
 }*/
-.DashboardContainer {
-  background-color: #f6f6f6;
-  grid-area: dashboard;
-  margin-top: 15px;
-}
 .TasksBoardContainer {
   width: 100%;
   grid-area: tasks;

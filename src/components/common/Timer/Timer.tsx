@@ -3,6 +3,7 @@ import { observable, action, reaction, when } from 'mobx';
 import { number } from "prop-types";
 import { observer, inject } from 'mobx-react'
 import { TodoStore } from '../../common/Task/TasksStoreModel';
+import { TimerView } from './Timer.View'
 
 
 interface TimerState {
@@ -15,10 +16,10 @@ interface IProps {
 }
 @inject('store')
 @observer
-export default class Timer extends React.Component<{}, TimerState, IProps>
+export default class TimerViewModel extends React.Component<{}, TimerState, IProps>
 {
     @observable ctime: number = 1500;
-    @observable displayedTime: string = '';
+    @observable displayedTime: string = '00:00:00';
     @observable isTimerActive: boolean = false;
     timerId: number = 0;
 
@@ -48,6 +49,7 @@ export default class Timer extends React.Component<{}, TimerState, IProps>
     @action
     resetTime = () => {
         this.ctime = 1500;
+        this.displayedTime = '00:00:00'
     }
 
     twoDigits = (num: number) => {
@@ -81,7 +83,6 @@ export default class Timer extends React.Component<{}, TimerState, IProps>
 
         } else {
             clearInterval(this.timerId);
-            //this.ctime = 1500;
         }
     }
 
@@ -92,8 +93,6 @@ export default class Timer extends React.Component<{}, TimerState, IProps>
         this.resetTime();
         this.store.inProgressTask = undefined;
     }
-
-
 
     /*playPauseButton = () => {
         if (this.isTimerActive) {
@@ -126,25 +125,17 @@ export default class Timer extends React.Component<{}, TimerState, IProps>
 
         return (
             <div>
-                <button className="play-button" onClick={this.handleStartPauseButton} disabled={!this.store.activeTask}>
-                    {this.isTimerActive ? <PauseButton /> : <PlayButton />}
-
-
-                </button>
-                <button className="stop-button" onClick={this.handleStopButton}>
-                    <svg width="16" height="16">
-                        <rect width="16" height="16" />
-                        Sorry, your browser does not support inline SVG.
-</svg>
-                </button>
-                Current: {this.ctime} ddddd {this.displayedTime}
+                <TimerView
+                    isTimerActive={this.isTimerActive}
+                    handleStartPauseButton={this.handleStartPauseButton}
+                    handleStopButton={this.handleStopButton}
+                    ctime={this.ctime}
+                    displayedTime={this.displayedTime}
+                />
             </div>
         )
     }
 
-    componentDidMount() {
-        //setInterval(() => this.updateTime(), 1000);
-    }
 };
 
 

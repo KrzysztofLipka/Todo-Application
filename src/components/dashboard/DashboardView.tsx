@@ -3,7 +3,8 @@ import { Provider } from 'mobx-react';
 import { taskStore } from '../common/Task/TasksStoreModel';
 import { observer, inject } from 'mobx-react';
 import { TodoStore } from '../common/Task/TasksStoreModel';
-import Timer from '../common/Timer/Timer'
+import TimerViewModel from '../common/Timer/Timer';
+import { TimerView } from '../common/Timer/Timer.View'
 
 //import DashboardInputView from '../dashboard/DashboardInput/DashboardInput.View'
 interface IDashboardView {
@@ -27,7 +28,6 @@ class DashboardView extends React.Component<IProps>
 
     constructor(props: any) {
         super(props);
-
         this.store = this.injected.store!;
 
     }
@@ -35,10 +35,10 @@ class DashboardView extends React.Component<IProps>
     render() {
         return (
             <div className="DashboardContainer separated">
-                <div> {this.store.activeTask && this.store.activeTask.title}
-                    {this.store.activeTask && this.store.activeTask.description}
+                <div className="clicked-task-info"> {this.store.activeTask && this.store.activeTask.title}
+                    <h1>{this.store.activeTask && this.store.activeTask.description}</h1>
                     {this.store.activeTask && this.store.activeTask.status}</div>
-                <div><Timer /></div>
+                <div className="timer-container"><TimerViewModel /></div>
             </div>
         );
     }
