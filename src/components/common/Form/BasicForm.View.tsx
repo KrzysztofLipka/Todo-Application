@@ -1,45 +1,38 @@
 import * as React from "react";
-import Input from './MainInput'
-import TextArea from './Input'
+import Input from '../MainInput'
+import TextArea from '../Input'
+import BasicFormViewModel from './BasicForm.ViewModel'
+import { observer } from 'mobx-react'
 
 interface IBasicFormProps {
-    title: string;
-    description: string;
-    onTitleChange: (title: string) => void;
-    onDescriptionChange: (description: string) => void;
-    onConfirm: () => void;
-
-    switchAddTaskActive: () => void;
-    isAddCheckboxClicked: boolean;
-
-
+    vm: BasicFormViewModel
 }
 
-const BasicForm: React.SFC<IBasicFormProps> = props => {
+@observer
+class BasicForm extends React.Component<IBasicFormProps> {
 
-    return (
+    render() {
+        return (
+            <div className='form-group separated'>
+                <Input
+                    inputName={'title'}
+                    value={this.props.vm.basicFormModel.title}
+                    onChange={this.props.vm.handleTitleChange}
+                    onConfirm={this.props.vm.handleConfirm}
+                    switchAddTaskActive={this.props.vm.handleAddTaskCheckbox}
+                    isAddCheckboxClicked={this.props.vm.basicFormModel.isAddCheckboxClicked}
+                />
+                <TextArea
+                    inputName={'description'}
+                    value={this.props.vm.basicFormModel.description}
+                    onChange={this.props.vm.handleDescriptionChange}
+                    onConfirm={this.props.vm.handleConfirm}
+                />
+            </div>
 
-        <div className='form-group separated'>
-            <Input
-                inputName={'title'}
-                value={props.title}
-                onChange={props.onTitleChange}
-                onConfirm={props.onConfirm}
-                switchAddTaskActive={props.switchAddTaskActive}
-                isAddCheckboxClicked={props.isAddCheckboxClicked}
-            />
+        )
+    }
 
-            <TextArea
-                inputName={'description'}
-                value={props.description}
-                onChange={props.onDescriptionChange}
-                onConfirm={props.onConfirm}
-
-
-            />
-        </div>
-
-    )
 }
 
 export default BasicForm;

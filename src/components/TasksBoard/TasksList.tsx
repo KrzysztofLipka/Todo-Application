@@ -1,56 +1,28 @@
 import React from 'react';
-import { observer, inject } from 'mobx-react';
-import TaskContainer from './TaskContainer';
-import { ITask } from '../common/Task/Task'
-import { TodoStore } from '../common/Task/TasksStoreModel';
-import CheckBox from '../common/CheckBox/CheckBox';
+import { observer } from 'mobx-react';
+import { TaskView } from '../Task/Task.View';
+import { Task } from '../Task/Task.Model'
+import store from '../stores/TodoStore';
 
-interface IProps {
-    store?: TodoStore
-}
-
-@inject('store')
 @observer
-class TasksList extends React.Component<IProps>
-{
-    get injected() {
-        return this.props as IProps;
-    }
-
-    private store: TodoStore;
-
-    constructor(props: any) {
-        super(props);
-
-        this.store = this.injected.store!;
-
-    }
+class TasksList extends React.Component {
 
     render() {
-
         return (
-
-            this.store.getTasks.map((task: any) =>
-
+            store.getTasks.map((task: Task) =>
                 <div className='task' key={task.id}>
-                    <TaskContainer
+                    <TaskView
                         id={task.id}
                         title={task.title}
                         status={task.status}
                         description={task.description}
-                        onRemove={this.store.removeTask}
-                        onClickOnTask={this.store.clickTask}
-                        onClickDoneCheckbox={this.store.doneTask}
+                        onRemove={store.removeTask}
+                        onClickOnTask={store.clickTask}
+                        onClickDoneCheckbox={store.doneTask}
                         minutesSpent={task.minutes}
-
                     />
                 </div>
-
-
-
-
             ));
-
     }
 }
 

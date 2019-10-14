@@ -11,11 +11,9 @@ export enum TaskStatus {
 }
 
 export interface ITask {
-    //id: string;
     title: string;
     description?: string;
     todoList?: string[];
-    //setStatus: (status: TaskStatus) => void;
 }
 
 export class Task extends React.Component<ITask> {
@@ -24,7 +22,7 @@ export class Task extends React.Component<ITask> {
     title: string;
     description?: string;
     @observable minutes: number = 0;
-    @observable status: string = TaskStatus.todo;
+    @observable status: TaskStatus = TaskStatus.todo;
 
     setStatus = (): void => {
         this.status === TaskStatus.todo ?

@@ -1,10 +1,6 @@
 import React from 'react';
-import CheckBox from '../common/CheckBox/CheckBox';
-import { TaskStatus } from '../common/Task/Task';
-import { observable } from 'mobx';
-
-
-
+import CheckBox from '../common/CheckBox';
+import { TaskStatus } from './Task.Model';
 
 interface ITaskProps {
     id: string;
@@ -17,7 +13,7 @@ interface ITaskProps {
     onClickDoneCheckbox: (id: string) => void
 }
 
-const TaskContainer: React.SFC<ITaskProps> = (props) => {
+export const TaskView: React.SFC<ITaskProps> = (props) => {
 
     const handleRemove = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         props.onRemove(props.id)
@@ -30,27 +26,20 @@ const TaskContainer: React.SFC<ITaskProps> = (props) => {
         props.onClickDoneCheckbox(props.id);
     }
 
-
-
-
     return (
         <div className='taskContainer' onClick={handleClickOnTask}>
-
             <div className='task-title'>{props.title}</div>
             <div className='task-date'>{props.minutesSpent}</div>
             <div className='task-isdone'>
                 <CheckBox onClickDoneCheckbox={handleClickOnDoneCheckbox} />
                 {props.status}
             </div>
-
             <div className='task-buttons'>
                 <button
                     onClick={handleRemove}
                     className='removeButton'>x</button>
             </div>
-
         </div>
     )
 }
 
-export default TaskContainer

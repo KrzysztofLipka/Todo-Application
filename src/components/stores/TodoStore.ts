@@ -1,23 +1,10 @@
 import { observable, action, computed, ObservableMap } from 'mobx'
-import { Task, ITask, TaskStatus } from './Task'
-import { string } from 'prop-types';
+import { Task } from '../Task/Task.Model'
 export class TodoStore {
-
-    /*i: ITask;
-    initialTask: Task;
-    constructor() {
-        this.i = {
-            title: ""
-        }
-
-        this.initialTask = new Task(this.i)
-
-    }*/
 
     @observable private tasks: ObservableMap<string, Task> = observable.map();
     @observable activeTask: Task | undefined;
     @observable inProgressTask: Task | undefined;
-    //@observable aa: any = null;
 
     @computed get getTasks(): Task[] {
         const tab: Task[] = []
@@ -32,28 +19,30 @@ export class TodoStore {
     @action addTask(task: Task) {
         console.log(task);
         this.tasks.set(task.id, task);
+        if (this.tasks.size === 1) {
+            this.activeTask = task;
+        }
     }
 
-    @action setActiveTask(task: Task | undefined) {
+    @action
+    setActiveTask(task: Task | undefined) {
         this.activeTask = task;
     }
 
     @action
     removeTask = (deletedTaskId: string) => {
-        if (this.activeTask && deletedTaskId !== this.activeTask.id) {
-            this.tasks.delete(deletedTaskId);
-        }
-
+        console.log(this.activeTask);
+        console.log('delete');
+        this.tasks.delete(deletedTaskId);
     }
 
-    @action
+    /*@todo implement @action
     updateTask = (updatedTaskId: string) => {
         console.log('update');
-    }
+    }*/
 
     clickTask = (id: string): void => {
         this.setActiveTask(this.tasks.get(id));
-
     }
 
     @action
@@ -73,8 +62,7 @@ export class TodoStore {
         this.inProgressTask = this.activeTask;
     }
 
-
 }
 
-export const taskStore = new TodoStore();
+export default new TodoStore();
 

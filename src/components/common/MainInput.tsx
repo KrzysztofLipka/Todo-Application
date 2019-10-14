@@ -6,7 +6,6 @@ interface InputProps {
     onChange: (value: string) => void;
     onConfirm: () => void;
     switchAddTaskActive: () => void;
-
     isAddCheckboxClicked: boolean;
 }
 
@@ -23,11 +22,10 @@ const Input: React.SFC<InputProps> = props => {
         }
     };
 
+    /*@todo add button
     const handleAddClick = (e: React.ChangeEvent<HTMLInputElement>) => {
         props.switchAddTaskActive();
-    };
-
-
+    };*/
 
     return (
 
