@@ -4,10 +4,10 @@ import './Styles/css/inputPanel.css';
 import './Styles/css/taskPanel.css';
 import './Styles/css/checkBox.css';
 import './Styles/css/timer.css';
-import DashboardView from './components/Dashboard/DashboardView';
 import TasksBoardView from '../src/components/TasksBoard/TasksBoardView';
 import HeaderView from './components/Header/HeaderView';
 import { observer } from 'mobx-react';
+import DashboardView from './components/dashboard/DashboardView';
 
 @observer
 class App extends React.Component<{}>
