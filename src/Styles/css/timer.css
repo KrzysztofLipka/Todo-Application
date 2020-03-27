@@ -6,14 +6,6 @@
   font-size: 30px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-.DashboardContainer {
-  background-color: #f6f6f6;
-  grid-area: dashboard;
-  margin-top: 15px;
-  display: grid;
-  grid-template-rows: 50% 30%;
-  grid-template-areas: "taskInfo" "timer";
-}
 .clicked-task-info {
   grid-area: taskInfo;
 }

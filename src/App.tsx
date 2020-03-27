@@ -6,17 +6,21 @@ import './Styles/css/checkBox.css';
 import './Styles/css/timer.css';
 import TasksBoardView from '../src/components/TasksBoard/TasksBoardView';
 import HeaderView from './components/Header/HeaderView';
+import { HeaderViewModel } from './components/Header/Header.ViewModel';
 import { observer } from 'mobx-react';
 import DashboardView from './components/dashboard/DashboardView';
 
 @observer
 class App extends React.Component<{}>
 {
+  headerVm = new HeaderViewModel()
   render() {
     return (
       <div className="App">
-        <HeaderView />
+
         <div className="wrapper">
+          <div className="logo"></div>
+          <HeaderView headerVm={this.headerVm} />
           <DashboardView />
           <TasksBoardView />
         </div>

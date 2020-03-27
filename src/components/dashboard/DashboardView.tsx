@@ -10,13 +10,25 @@ class DashboardView extends React.Component {
 
     vm = new TimerViewModel();
 
+
+
     render() {
+        const subtasks = store.activeTask ? store.activeTask.subTasks.map((subtask: string) =>
+            <li key={subtask}>{subtask}</li>
+        ) : null;
+
+
         return (
-            <div className="DashboardContainer separated">
+            <div className="DashboardContainer">
                 <div className="clicked-task-info">
                     <h1>{store.activeTask && store.activeTask.title}</h1>
-                    {store.activeTask && store.activeTask.description}
-                    {store.activeTask && store.activeTask.status}</div>
+                    <p>{store.activeTask && store.activeTask.description}</p>
+                    Status: {store.activeTask && store.activeTask.status}
+                    {store.activeTask && <p>Subtasks:</p>}
+                    <ul>{store.activeTask && subtasks}</ul>
+                    {store.activeTask && <p>Date Created/ Modified:</p>}
+                    {store.activeTask && store.activeTask.dateFormatted}
+                </div>
                 <div className="timer-container"><TimerView vm={this.vm} /></div>
             </div>
         );

@@ -1,35 +1,87 @@
-.description-input,
-.message {
+.form-group {
+  grid-area: formContainer;
+  background-color: #ffffff;
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 4fr 1fr 1fr;
+  grid-template-rows: 20% 10% 20% 20% 20%;
+  grid-template-areas: '. title title .' '. description description .' '. date date .' '. subtask subtask .' '. . . .';
+  grid-row-gap: 20px;
+}
+.form-group .title-input {
+  grid-area: title;
+}
+.form-group .description-input,
+.form-group .message {
+  grid-area: description;
   display: block;
-  padding: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   margin: 10px auto;
-  background-color: #e7e7e7;
+  background-color: #ffffff;
   border: none;
   width: 100%;
   outline: none;
   font-size: 14px !important;
   font-family: 'Open Sans', sans-serif !important;
 }
-.form-group {
-  grid-area: formContainer;
-  background-color: #f6f6f6;
+.form-group .date-input {
+  grid-area: date;
+}
+.form-group .subtask-input {
+  grid-area: subtask;
+}
+.modal-main {
+  position: fixed;
+  background: white;
+  width: 70%;
+  height: 80%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.input-panel {
   display: grid;
-  margin-right: 15px;
-  margin-left: 15px;
-  margin-top: 15px;
+  grid-template-columns: 5fr 1fr 1fr;
+  grid-template-areas: 'input input input' '. newTask editTask';
+  margin-left: 30px;
+  margin-right: 30px;
+}
+.input-panel input[type=text],
+.input-panel select {
   width: 100%;
-  grid-template-columns: 25% 25% 25% 25%;
-  grid-template-rows: 20% 10% 20% 50%;
-  grid-template-areas: ". . . ." ". i i . " ". d d ." ". . . .";
-  grid-row-gap: 20px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
-.textarea-container {
-  grid-area: d;
+.input-panel input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
-.input-container {
-  grid-area: i;
+.input-panel input[type=submit]:hover {
+  background-color: #45a049;
 }
-.description-label {
-  top: -3px;
-  right: 25px;
+.input-panel textarea {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.input-panel .new-task {
+  grid-area: newTask;
+}
+.input-panel .edit-task {
+  grid-area: editTask;
 }

@@ -1,10 +1,19 @@
 import { observable, action, computed, ObservableMap } from 'mobx'
 import { Task } from '../Task/Task.Model'
+import { Mocks } from './TodoStore.Mock';
 export class TodoStore {
 
     @observable private tasks: ObservableMap<string, Task> = observable.map();
     @observable activeTask: Task | undefined;
     @observable inProgressTask: Task | undefined;
+
+    /**
+     *
+     */
+    constructor() {
+        this.tasks.set(Mocks.t1.id, Mocks.t1)
+
+    }
 
     @computed get getTasks(): Task[] {
         const tab: Task[] = []
@@ -17,7 +26,6 @@ export class TodoStore {
     }
 
     @action addTask(task: Task) {
-        console.log(task);
         this.tasks.set(task.id, task);
         if (this.tasks.size === 1) {
             this.activeTask = task;
@@ -31,15 +39,8 @@ export class TodoStore {
 
     @action
     removeTask = (deletedTaskId: string) => {
-        console.log(this.activeTask);
-        console.log('delete');
         this.tasks.delete(deletedTaskId);
     }
-
-    /*@todo implement @action
-    updateTask = (updatedTaskId: string) => {
-        console.log('update');
-    }*/
 
     clickTask = (id: string): void => {
         this.setActiveTask(this.tasks.get(id));
@@ -51,7 +52,6 @@ export class TodoStore {
             (t: Task) => {
                 if (t.id === id) {
                     t.setStatus();
-                    console.log(t.status);
                 }
             }
         )

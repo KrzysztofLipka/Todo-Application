@@ -7,6 +7,9 @@ interface InputProps {
     onConfirm: () => void;
     switchAddTaskActive: () => void;
     isAddCheckboxClicked: boolean;
+    placeholderText: string;
+    isValid?: boolean,
+    validationMessage?: string
 }
 
 const Input: React.SFC<InputProps> = props => {
@@ -22,21 +25,25 @@ const Input: React.SFC<InputProps> = props => {
         }
     };
 
-    /*@todo add button
-    const handleAddClick = (e: React.ChangeEvent<HTMLInputElement>) => {
-        props.switchAddTaskActive();
-    };*/
-
     return (
 
-        <div className='input-container'>
+        <div className={props.inputName}>
             <input className="message" type='text'
                 name={props.inputName}
                 value={props.value}
                 onChange={handleChange}
                 onKeyDown={handleEnter}
-                placeholder="Add Title"
+                placeholder={props.placeholderText}
                 autoComplete="off" />
+
+            {!props.isValid &&
+                <div className='validationMessage'>
+                    {props.validationMessage
+                        ? props.validationMessage
+                        : 'Invalid Input'
+                    }
+                </div>
+            }
         </div>
 
     )

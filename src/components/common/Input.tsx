@@ -5,7 +5,8 @@ interface InputProps {
     value: string;
     onChange: (value: string) => void;
     onConfirm: () => void;
-    inputHeight?: string;
+    isValid?: boolean;
+    validationMessage?: string;
 
 }
 
@@ -26,7 +27,7 @@ const TextArea: React.SFC<InputProps> = props => {
 
 
     return (
-        <div className='textarea-container'>
+        <div className={props.inputName}>
             {/*<label htmlFor="description-input" className="description-label">{props.inputName}</label>*/}
             <textarea className="description-input"
                 name={props.inputName}
@@ -35,9 +36,15 @@ const TextArea: React.SFC<InputProps> = props => {
                 onKeyDown={handleEnter}
                 autoComplete="off"
                 placeholder="Add description"
-                style={{ height: props.inputHeight }}
-
             />
+            {!props.isValid &&
+                <div className='validationMessage'>
+                    {props.validationMessage
+                        ? props.validationMessage
+                        : 'Invalid Input'
+                    }
+                </div>
+            }
 
         </div>
     )
