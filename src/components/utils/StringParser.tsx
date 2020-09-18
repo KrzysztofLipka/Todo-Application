@@ -6,7 +6,7 @@ export class StringParser {
     static bracketsMatcher = /((?:\s|^)#(\[|\()([^)]+)(\]|\)))/
     static datesMatcher = /((?:\s|^)(0[1-9]|[12]\d|3[01])[-/.](0[1-9]|1[0-2])[-/.][12]\d{3})/
 
-    static getTaskListFromString = (title: string): string[] | null => {
+    /*static getTaskListFromString = (title: string): string[] | null => {
         const c = title.match(StringParser.bracketsMatcher);
         if (c != null && c[3] != null) {
             return c[3].split(',')
@@ -16,9 +16,9 @@ export class StringParser {
         }
 
         //return title.match(hashtagMatcher);
-    }
+    }*/
 
-    static getDateFromString = (title: string, withHashtag: boolean): string | null => {
+    /*static getDateFromString = (title: string, withHashtag: boolean): string | null => {
         const c = withHashtag
             ? title.match(StringParser.hashtagDatesWithSeparatorMathcer) :
             title.match(StringParser.datesMatcher);
@@ -30,7 +30,7 @@ export class StringParser {
         } else {
             return null
         }
-    }
+    }*/
 }
 
 

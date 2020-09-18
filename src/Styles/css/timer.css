@@ -1,11 +1,15 @@
 .timer-container {
   text-align: center;
   grid-area: timer;
+  margin-top: 30px;
 }
 #time {
-  font-size: 30px;
+  font-size: 60px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .clicked-task-info {
   grid-area: taskInfo;
+  margin-left: 100px;
 }
+
+

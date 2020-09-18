@@ -5,7 +5,6 @@ interface InputProps {
     value: string;
     onChange: (value: string) => void;
     onConfirm: () => void;
-    switchAddTaskActive: () => void;
     isAddCheckboxClicked: boolean;
     placeholderText: string;
     isValid?: boolean,
@@ -26,7 +25,6 @@ const Input: React.SFC<InputProps> = props => {
     };
 
     return (
-
         <div className={props.inputName}>
             <input className="message" type='text'
                 name={props.inputName}
@@ -45,7 +43,6 @@ const Input: React.SFC<InputProps> = props => {
                 </div>
             }
         </div>
-
     )
 
 }

@@ -47,15 +47,18 @@
 .table-header {
   display: grid;
   grid-template-columns: 3fr 2fr 3fr 2fr 1fr;
-  background-color: #e2e7ec;
+  
 }
 .table-header {
   font-weight: bold;
-  background-color: #ffffff;
+  color: #ffffff;
+  background-color: #332a2a;
   border-bottom: 2px solid #ccc;
-  margin-top: 20px;
+  padding-top: 20px;
+  padding-left: 5px;
 }
 .tasks-list {
   display: grid;
+  border: black solid;
   grid-template-rows: repeat(auto-fill, minmax(30px, 60px));
 }

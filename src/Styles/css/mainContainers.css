@@ -11,45 +11,55 @@ body {
 }
 html {
   height: auto;
-  background-color: #e2e7ec;
+  background-color: white;
 }
 #root {
-  background-color: #e2e7ec;
+  background-color: white;
   height: 100%;
 }
 .wrapper {
-  background-color: #e2e7ec;
+  background-color: white;
   display: grid;
   grid-template-rows: 10% 90%;
-  grid-template-columns: 10% 90%;
-  width: 100%;
+  /*grid-template-columns: 10% 90%;*/
+  width: 1000px;
   height: 100vh;
 }
 .App {
   width: 100%;
   height: 100vh;
   margin: auto;
-  background-color: #e2e7ec;
+  background-color: white;
 }
 @media only screen and (min-width: 768px) {
   .wrapper {
     margin: auto;
-    grid-template-columns: 20% 80%;
-    grid-template-rows: 7% 93%;
-    grid-template-areas: "logo header" "dashboard tasks";
-    width: 100%;
+    /*grid-template-columns: 20% 80%;*/
+    grid-template-rows: 50px 20% 80%;
+    grid-template-areas: "header" "dashboard" "tasks";
+    width: 1000px;
     height: 100%;
   }
 }
 /*@media only screen and (min-width: 992px) {  
    
 }*/
-/*@media only screen and (min-width: 1200px) {  
-    .DashboardContainer {
-    width: 30%;
+@media only screen and (min-width: 1200px) {  
+
+  .application-container {
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+
+  .DashboardContainer {  
     float: left;
+  }
+
+    .TasksBoardContainer{
+      width: 1000px;
+    }
  }
-}*/
+
 .logo {
   grid-area: logo;
   background-color: #359bf5;
@@ -63,17 +73,31 @@ html {
   background-color: #ffffff;
   grid-area: dashboard;
   display: grid;
-  grid-template-rows: 50% 30%;
-  grid-template-areas: "taskInfo" "timer";
+  width: 1000px;
+  grid-template-rows: 25% 10% 65%;
+  grid-template-columns: 50% 50%;
+  grid-template-areas: "title title" "description description" "taskInfo timer";
 }
+
+.title{
+  grid-area: title;
+  text-align: center;
+}
+
+.description{
+  grid-area: description;
+  text-align: center;
+}
+
 .TasksBoardContainer {
-  width: 100%;
+  width: 1000px;
   grid-area: tasks;
-  background-color: #e2e7ec;
+  background-color: white;
   display: grid;
   grid-template-rows: 150px auto;
   grid-template-areas: "formContainer" "currentApp";
   grid-row-gap: 15px;
+  margin: 0 auto;
 }
 .applications-list {
   width: 100%;
@@ -126,7 +150,7 @@ html {
   display: none;
 }
 button {
-  background-color: #4CAF50;
+  background-color: #332a2a;
   /* Green */
   border: none;
   color: white;
