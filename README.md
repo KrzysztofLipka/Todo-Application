@@ -9,7 +9,6 @@
 * Mobx as state manager :green_heart:
 * View/ViewModels/Models and others in separate files :green_heart:
 * use interfaces in Views :green_heart:
-* add LESS files :green_heart:
 * add unit tests (look for fast framework)
 * reusable components
 * Composition over inheritance approach ([Link](https://en.wikipedia.org/wiki/Composition_over_inheritance "Composition over inheritance"))
