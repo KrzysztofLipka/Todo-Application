@@ -1,7 +1,6 @@
 import * as React from "react";
-import { observable, computed, action } from "mobx";
+import { observable, computed } from "mobx";
 import moment, { Moment } from "moment";
-import { string } from "prop-types";
 
 const uuid = require("uuidv4");
 
@@ -13,9 +12,7 @@ export enum TaskStatus {
 
 export interface ITask {
   title: string;
-  isCreatedFromForm: boolean;
   description?: string;
-  subTasks?: string[];
   date?: string;
 }
 
@@ -25,11 +22,8 @@ export class Task extends React.Component<ITask> {
   description?: string;
   @observable minutes: number = 0;
   @observable status: TaskStatus = TaskStatus.todo;
-  @observable subTasks: string[] = [];
   @observable date: Moment;
   @observable dateCreated: Moment;
-  //d: string | null = '';
-  //c?: RegExpMatchArray | null = null;
 
   setStatus = (): void => {
     this.status === TaskStatus.todo
@@ -48,13 +42,7 @@ export class Task extends React.Component<ITask> {
     this.description = props.description;
     this.dateCreated = moment();
     this.date = moment();
-    if (props.subTasks) {
-      this.subTasks = props.subTasks;
-    }
 
-    if (props.subTasks) {
-      this.subTasks = props.subTasks;
-    }
 
     if (props.date) {
       this.date = moment(props.date, "DD-MM-YYYY");

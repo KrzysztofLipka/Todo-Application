@@ -1,5 +1,4 @@
-import React, { Component } from "react";
-import ReactDOM from "react-dom";
+import React from "react";
 import { ModalViewModel } from './Modal.ViewModel';
 import { observer } from 'mobx-react';
 

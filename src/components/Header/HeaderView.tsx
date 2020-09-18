@@ -18,10 +18,10 @@ const HeaderView: React.FunctionComponent<{
     )}
     <button className="new-task" onClick={headerVM.modalVM.showModal}>
       New Task
-          </button>
+    </button>
     <button className="edit-task" onClick={headerVM.modalVM.showModal}>
       Edit
-          </button>
+    </button>
   </div>;
 });
 

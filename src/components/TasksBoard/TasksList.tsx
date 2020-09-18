@@ -27,7 +27,7 @@ class TasksList extends React.Component {
           description={task.description}
           onRemove={store.removeTask}
           onClickOnTask={store.clickTask}
-          onClickDoneCheckbox={store.doneTask}
+          onClickDoneCheckbox={store.markTaskAsDone}
           minutesSpent={task.minutes}
           createdDate={task.dateCreatedFormatted}
         />

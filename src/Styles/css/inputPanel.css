@@ -1,11 +1,11 @@
-/*.form-group {
+.form-group {
   grid-area: formContainer;
   background-color: #ffffff;
   display: grid;
   width: 100%;
   grid-template-columns: 1fr 4fr 1fr 1fr;
-  grid-template-rows: 20% 10% 20% 20% 20%;
-  grid-template-areas: '. title title .' '. description description .' '. date date .' '. subtask subtask .' '. . . .';
+  grid-template-rows: 20% 10% 20% 40%;
+  grid-template-areas: '. title title .' '. description description .' '. date date .' '. . . .';
   grid-row-gap: 20px;
 }
 .form-group .title-input {
@@ -28,9 +28,7 @@
 .form-group .date-input {
   grid-area: date;
 }
-.form-group .subtask-input {
-  grid-area: subtask;
-}*/
+
 .modal-main {
   position: fixed;
   background: white;
@@ -40,7 +38,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
-/*
+
 .input-panel {
   display: grid;
   grid-template-columns: 5fr 1fr 1fr;
@@ -85,4 +83,4 @@
 }
 .input-panel .edit-task {
   grid-area: editTask;
-}*/
+}

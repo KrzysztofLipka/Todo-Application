@@ -24,7 +24,6 @@ class App extends React.Component<{}> {
             headerVM={this.headerVm}
             formVm={this.formVm}
           />
-
           <DashboardView />
           <TasksBoardView />
         </div>

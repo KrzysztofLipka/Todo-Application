@@ -43,7 +43,7 @@ export class TodoStore {
   };
 
   @action
-  doneTask = (id: string): void => {
+  markTaskAsDone = (id: string): void => {
     this.tasks.forEach((t: Task) => {
       if (t.id === id) {
         t.setStatus();

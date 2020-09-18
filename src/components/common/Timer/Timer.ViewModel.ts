@@ -1,4 +1,4 @@
-import { observable, action, reaction } from "mobx";
+import { observable, action } from "mobx";
 import store from "../../stores/TodoStore";
 
 export default class TimerViewModel {

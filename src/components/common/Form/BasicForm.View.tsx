@@ -11,11 +11,7 @@ interface IBasicFormProps {
 @observer
 class BasicForm extends React.Component<IBasicFormProps> {
   render() {
-    const subtasks = this.props.vm.subtaskList
-      ? this.props.vm.subtaskList.map((subtask: string) => (
-        <li key={subtask}>{subtask}</li>
-      ))
-      : null;
+
     return (
       <div className="form-group">
         <Input
@@ -44,17 +40,6 @@ class BasicForm extends React.Component<IBasicFormProps> {
           placeholderText={"Add Due Date"}
           isValid={this.props.vm.isDateValid}
         />
-
-        <Input
-          inputName={"subtask-input"}
-          value={this.props.vm.subtask}
-          onChange={this.props.vm.handleSubtaskChange}
-          onConfirm={this.props.vm.handleConfirmSubtaskInput}
-          isAddCheckboxClicked={this.props.vm.isAddCheckboxClicked}
-          placeholderText={"Add Subtask and click Enter"}
-        />
-
-        <ul>{subtasks}</ul>
 
         <button
           onClick={this.props.vm.handleSubmitForm}

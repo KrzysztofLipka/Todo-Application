@@ -10,11 +10,7 @@ export default class BasicFormViewModel {
   @observable title: string = "";
   @observable description: string = "";
   @observable isAddCheckboxClicked: boolean = false;
-  @observable subtaskList: string[] = [];
   @observable date: string = "";
-  @observable subtask: string = "";
-
-  @observable isNumberOfSubtasksValid: boolean = true;
 
   @action
   public handleTitleChange = (title: string) => {
@@ -36,28 +32,9 @@ export default class BasicFormViewModel {
   };
 
   @action
-  public handleSubtaskChange = (subtask: string) => {
-    this.subtask = subtask;
-  };
-
-  @action
-  public handleConfirmSubtaskInput = (subtask?: string) => {
-    if (!!subtask) {
-      this.subtaskList.push(subtask);
-    } else {
-      if (this.subtask) {
-        this.subtaskList.push(this.subtask);
-      }
-    }
-
-    this.subtask = "";
-  };
-
-  @action
   public clearTask = () => {
     this.title = "";
     this.description = "";
-    this.subtaskList = [];
   };
 
   @computed
@@ -78,10 +55,9 @@ export default class BasicFormViewModel {
   @computed
   public get isFormValid() {
     return (
-      this.isDateValid &&
+      (!this.date || this.isDateValid) &&
       this.isDescritpionValid &&
-      this.isTitleValid &&
-      this.isNumberOfSubtasksValid
+      this.isTitleValid
     );
   }
 
@@ -91,9 +67,7 @@ export default class BasicFormViewModel {
     if (this.title.length !== 0) {
       const task = new Task({
         title: this.title,
-        isCreatedFromForm: false,
         description: this.description,
-        subTasks: this.subtaskList,
       });
       taskStore.addTask(task);
       this.clearTask();
